@@ -2,6 +2,7 @@
 
 import { CreditCard, MoreVertical, LogOut, CircleUser } from "lucide-react";
 
+//ui components
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
