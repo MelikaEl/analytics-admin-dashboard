@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 // import { DashboardPage } from '@/pages/DashboardPage'
 // import { UsersPage } from '@/pages/UsersPage'
 // import { TransactionsPage } from '@/pages/TransactionsPage'
-import { AppLayout } from '@/components/layout/AppLayout'
+import { AppLayout } from '@/components/layout'
 
 export const router = createBrowserRouter([
   {
