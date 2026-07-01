@@ -5,6 +5,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
 //lib
@@ -28,6 +29,8 @@ export function NavMain({
   // Get current path
   const location = useLocation();
 
+  const { setOpenMobile } = useSidebar();
+
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
@@ -44,6 +47,7 @@ export function NavMain({
                     "transition-all duration-200",
                     isActive && "bg-teal-100 dark:bg-teal-800 text-teal-900 dark:text-teal-50",
                   )}
+                  onClick={() => setOpenMobile(false)}
                 >
                   <Link to={item.url}>
                     {item.icon && <item.icon />}

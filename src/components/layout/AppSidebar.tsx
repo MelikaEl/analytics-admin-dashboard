@@ -11,6 +11,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
 const data = {
@@ -39,12 +40,17 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { setOpenMobile } = useSidebar();
   return (
     <Sidebar collapsible="offcanvas" {...props} className="bg-teal-700 dark:bg-teal-950 text-white">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:p-1.5!">
+            <SidebarMenuButton
+              asChild
+              className="data-[slot=sidebar-menu-button]:p-1.5!"
+              onClick={() => setOpenMobile(false)}
+            >
               <a href="/">
                 <Globe className="size-5!" />
                 <span className="text-base font-semibold">InsightFlow</span>
