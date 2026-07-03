@@ -129,6 +129,7 @@ code {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-ring: hsl(var(--ring));
+  --color-primary: var(--primary);
 }
 
 @layer base {
@@ -143,7 +144,7 @@ code {
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --primary: oklch(0.42 0.12 190);
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);

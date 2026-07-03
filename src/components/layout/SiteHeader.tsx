@@ -28,7 +28,7 @@ export function SiteHeader() {
       <div className="flex w-full items-center gap-1 px-4 lg:gap-2 lg:px-6">
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mx-2 data-[orientation=vertical]:h-4" />
-        <Breadcrumb className="text-teal-700 font-bold">
+        <Breadcrumb className="text-primary font-bold">
           <BreadcrumbList>
             {/* Always show Overview/Home as the root */}
             <BreadcrumbItem>
