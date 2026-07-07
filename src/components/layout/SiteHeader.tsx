@@ -28,14 +28,14 @@ export function SiteHeader() {
       <div className="flex w-full items-center gap-1 px-4 lg:gap-2 lg:px-6">
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mx-2 data-[orientation=vertical]:h-4" />
-        <Breadcrumb className="text-primary font-bold">
+        <Breadcrumb className="text-primary ">
           <BreadcrumbList>
             {/* Always show Overview/Home as the root */}
             <BreadcrumbItem>
               {location.pathname === "/" ? (
-                <BreadcrumbPage>Overview</BreadcrumbPage>
+                <BreadcrumbPage className="font-semibold">Overview</BreadcrumbPage>
               ) : (
-                <BreadcrumbLink asChild>
+                <BreadcrumbLink asChild className="font-semibold">
                   <Link to="/">Overview</Link>
                 </BreadcrumbLink>
               )}
@@ -44,7 +44,7 @@ export function SiteHeader() {
               <>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage className="font-bold">{currentTitle}</BreadcrumbPage>
+                  <BreadcrumbPage className="font-semibold">{currentTitle}</BreadcrumbPage>
                 </BreadcrumbItem>
               </>
             )}
