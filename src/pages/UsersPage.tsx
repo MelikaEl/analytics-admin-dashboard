@@ -1,8 +1,10 @@
+//hooks
+import { useUsers } from "@/features/users/hooks/useUsers";
 
 function UsersPage() {
-  return (
-    <div>UsersPage</div>
-  )
+  const { data, isLoading } = useUsers();
+
+  return <div>UsersPage</div>;
 }
 
-export default UsersPage
+export default UsersPage;
