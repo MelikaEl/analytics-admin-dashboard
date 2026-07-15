@@ -1,5 +1,5 @@
 //hooks
-import { useUsers } from "@/features/users/hooks/useUsers";
+import { useUsers } from "@/features/users";
 
 function UsersPage() {
   const { data, isLoading } = useUsers();
