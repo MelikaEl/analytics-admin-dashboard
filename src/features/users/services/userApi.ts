@@ -1,10 +1,13 @@
-// src/features/users/services/userApi.ts
+//import libs
 import { api } from "@/lib/axios";
+
+//import types
+import type { GetUsersResponse } from "../types";
+
 // import type { User, CreateUserPayload, UpdateUserPayload } from '../types';
 
 export const userApi = {
-  fetchUsers: async () => {
-    //   fetchUsers: async (): Promise<User[]> => {
+  fetchUsers: async (): Promise<GetUsersResponse> => {
     const { data } = await api.get("/users");
     return data;
   },
