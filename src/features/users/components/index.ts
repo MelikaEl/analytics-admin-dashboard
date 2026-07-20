@@ -1,1 +1,0 @@
-export {userTableColumns} from "./UserTableColumns"
