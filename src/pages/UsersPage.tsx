@@ -1,10 +1,10 @@
-//hooks
-import { useUsers } from "@/features/users";
+import { DataTable } from "@/components/ui/data-table";
+import { userTableColumns, useUsers } from "@/features/users";
 
 function UsersPage() {
-  const { data, isLoading } = useUsers();
+  const { data: users, isLoading } = useUsers();
 
-  return <div>UsersPage</div>;
+  return <DataTable columns={userTableColumns} data={users || []} />;
 }
 
 export default UsersPage;
