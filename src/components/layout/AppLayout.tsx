@@ -15,7 +15,7 @@ export function AppLayout() {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <main className="p-7">
+        <main className="p-6">
           <Outlet />
         </main>
       </SidebarInset>
