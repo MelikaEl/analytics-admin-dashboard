@@ -42,7 +42,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { setOpenMobile } = useSidebar();
   return (
-    <Sidebar collapsible="offcanvas" {...props} className="bg-primary dark:bg-teal-950 text-white">
+    <Sidebar collapsible="offcanvas" {...props} className="bg-teal dark:bg-teal-950 text-white">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
