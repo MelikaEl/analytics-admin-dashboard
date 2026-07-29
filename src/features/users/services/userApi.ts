@@ -2,14 +2,25 @@
 import { api } from "@/lib/axios";
 
 //import types
-import type { GetUsersResponse } from "../types";
+import type { GetUsersResponse, User } from "../types";
+
+//import utils
+import { getRandomElemnt } from "@/utils/getRandomElement";
+
+//import constants
+import { USER_STATUSES } from "../constants";
 
 // import type { User, CreateUserPayload, UpdateUserPayload } from '../types';
 
 export const userApi = {
   fetchUsers: async (): Promise<GetUsersResponse> => {
     const { data } = await api.get("/users");
-    return data;
+    return data.map((user : User) => ({
+      ...user,
+      status: getRandomElemnt(USER_STATUSES)
+    })
+  
+  );
   },
 };
 

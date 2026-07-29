@@ -7,3 +7,6 @@ export interface User {
   role: string;
   status: string;
 }
+
+export type UserStatus = "active" | "inactive" | "pending";
+
