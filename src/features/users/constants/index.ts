@@ -1,1 +1,1 @@
-export { USER_STATUSES } from "./statuses";
+export * from "./statuses";
