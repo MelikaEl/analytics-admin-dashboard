@@ -2,7 +2,13 @@
 import type { ColumnDef } from "@tanstack/react-table";
 
 //import types
-import type { User } from "./types";
+import type { User, UserStatus } from "./types";
+
+//import ui
+import { Badge } from "@/components/ui/badge";
+
+//constants
+import { STATUS_ICONS } from "./constants";
 
 export const userTableColumns: ColumnDef<User>[] = [
   {
@@ -28,6 +34,14 @@ export const userTableColumns: ColumnDef<User>[] = [
   {
     accessorKey: "status",
     header: "Status",
-    cell: ({ row }) => row.original.status,
+    cell: ({ row }) => {
+      const { icon: Icon, className } = STATUS_ICONS[row.original.status as UserStatus];
+      return (
+        <Badge variant="outline" className="text-muted-foreground">
+          <Icon className={className} />
+          {row.original.status}
+        </Badge>
+      );
+    },
   },
 ];
