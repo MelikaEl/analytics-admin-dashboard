@@ -126,6 +126,7 @@ code {
   --color-teal: var(--teal);
   --color-dark-teal: var(--dark-teal);
   --color-success: var(--success);
+  --color-warning: var(--warning);
 
   /*shadcn colors*/
   --color-background: var(--background);
@@ -158,6 +159,7 @@ code {
     --teal: oklch(0.42 0.12 190);
     --dark-teal: oklch(27.7% 0.046 192.524);
     --success: oklch(72.3% 0.219 149.579);
+    --warning: oklch(79.5% 0.184 86.047);
 
     /*shadcn colors*/
     --background: oklch(1 0 0);
