@@ -10,6 +10,9 @@ import { Badge } from "@/components/ui/badge";
 //constants
 import { STATUS_ICONS } from "./constants";
 
+//utils
+import { formatDate } from "@/utils/date";
+
 export const userTableColumns: ColumnDef<User>[] = [
   {
     accessorKey: "email",
@@ -24,7 +27,7 @@ export const userTableColumns: ColumnDef<User>[] = [
   {
     accessorKey: "joinedAt",
     header: "Joined At",
-    cell: ({ row }) => row.original.joinedAt,
+    cell: ({ row }) => formatDate(row.original.joinedAt),
   },
   {
     accessorKey: "role",
