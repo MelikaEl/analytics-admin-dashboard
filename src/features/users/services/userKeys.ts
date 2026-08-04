@@ -1,3 +1,5 @@
+import type { UsersParams } from "../types";
+
 export const userKeys = {
-    fetchUsers: ['users'] as const
-}
+  fetchUsers: (params?: UsersParams) => ["users", params] as const,
+};

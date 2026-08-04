@@ -6,11 +6,11 @@ import { userApi } from "../services/userApi";
 import { userKeys } from "../services/userKeys";
 
 //import types
-import type { GetUsersResponse } from "../types";
+import type { GetUsersResponse, UsersParams } from "../types";
 
-export const useUsers = () => {
+export const useUsers = (params?: UsersParams) => {
   return useQuery<GetUsersResponse>({
-    queryKey: userKeys.fetchUsers,
-    queryFn: userApi.fetchUsers,
+    queryKey: userKeys.fetchUsers(params),
+    queryFn: () => userApi.fetchUsers(params),
   });
 };
