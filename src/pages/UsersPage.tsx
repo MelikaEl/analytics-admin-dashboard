@@ -63,10 +63,13 @@ function UsersPage() {
         <Pagination className="mx-0 w-auto">
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious href="#" />
+              <PaginationPrevious
+                onClick={() => handlePageChange(page - 1)}
+                aria-disabled={page === 1}
+              />
             </PaginationItem>
             <PaginationItem>
-              <PaginationNext href="#" />
+              <PaginationNext onClick={() => handlePageChange(page + 1)} />
             </PaginationItem>
           </PaginationContent>
         </Pagination>
