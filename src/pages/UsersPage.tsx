@@ -40,6 +40,8 @@ function UsersPage() {
     setSearchParams({ page: "1", limit: newLimit });
   };
 
+  const isLastPage = (users?.length ?? 0) < limit;
+
   return (
     <>
       <DataTable columns={userTableColumns} data={users || []} />
@@ -69,7 +71,10 @@ function UsersPage() {
               />
             </PaginationItem>
             <PaginationItem>
-              <PaginationNext onClick={() => handlePageChange(page + 1)} />
+              <PaginationNext
+                onClick={() => handlePageChange(page + 1)}
+                aria-disabled={isLastPage}
+              />
             </PaginationItem>
           </PaginationContent>
         </Pagination>
