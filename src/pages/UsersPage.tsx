@@ -47,7 +47,7 @@ function UsersPage() {
       <div className="flex items-center justify-between gap-4 pt-3">
         <Field orientation="horizontal" className="w-fit">
           <FieldLabel htmlFor="select-rows-per-page">Rows per page</FieldLabel>
-          <Select defaultValue="25">
+          <Select value={String(limit)} onValueChange={handleLimitChange}>
             <SelectTrigger className="w-20" id="select-rows-per-page">
               <SelectValue />
             </SelectTrigger>
@@ -56,7 +56,6 @@ function UsersPage() {
                 <SelectItem value="10">10</SelectItem>
                 <SelectItem value="25">25</SelectItem>
                 <SelectItem value="50">50</SelectItem>
-                <SelectItem value="100">100</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
