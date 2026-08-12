@@ -67,13 +67,13 @@ function UsersPage() {
             <PaginationItem>
               <PaginationPrevious
                 onClick={() => handlePageChange(page - 1)}
-                aria-disabled={page === 1}
+                className={page === 1 ? "pointer-events-none opacity-50" : undefined}
               />
             </PaginationItem>
             <PaginationItem>
               <PaginationNext
                 onClick={() => handlePageChange(page + 1)}
-                aria-disabled={isLastPage}
+                className={isLastPage ? "pointer-events-none opacity-50" : undefined}
               />
             </PaginationItem>
           </PaginationContent>
