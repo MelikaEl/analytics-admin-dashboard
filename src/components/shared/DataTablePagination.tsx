@@ -14,33 +14,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { SetURLSearchParams } from "react-router-dom";
-
 interface DataTablePaginationProps {
-  setSearchParams: SetURLSearchParams;
-  limit: number;
   page: number;
   isLastPage: boolean;
+  setPage: (newPage: number) => void;
+  setLimit: (newLimit: string) => void;
 }
 
 export function DataTablePagination({
-  setSearchParams,
-  limit,
   page,
   isLastPage,
+  setPage,
+  setLimit,
 }: DataTablePaginationProps) {
-  const handlePageChange = (newPage: number) => {
-    setSearchParams({ page: String(newPage), limit: String(limit) });
-  };
-
-  const handleLimitChange = (newLimit: string) => {
-    setSearchParams({ page: "1", limit: newLimit });
-  };
   return (
     <div className="flex items-center justify-between gap-4 pt-3">
       <Field orientation="horizontal" className="w-fit">
         <FieldLabel htmlFor="select-rows-per-page">Rows per page</FieldLabel>
-        <Select defaultValue="10" onValueChange={handleLimitChange}>
+        <Select defaultValue="10" onValueChange={setLimit}>
           <SelectTrigger className="w-20" id="select-rows-per-page">
             <SelectValue />
           </SelectTrigger>
@@ -57,13 +48,13 @@ export function DataTablePagination({
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
-              onClick={() => handlePageChange(page - 1)}
+              onClick={() => setPage(page - 1)}
               className={page === 1 ? "pointer-events-none opacity-50" : undefined}
             />
           </PaginationItem>
           <PaginationItem>
             <PaginationNext
-              onClick={() => handlePageChange(page + 1)}
+              onClick={() => setPage(page + 1)}
               className={isLastPage ? "pointer-events-none opacity-50" : undefined}
             />
           </PaginationItem>

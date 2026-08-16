@@ -4,17 +4,14 @@ import { DataTable } from "@/components/ui/data-table";
 // users
 import { userTableColumns, useUsers } from "@/features/users";
 
-// react router
-import { useSearchParams } from "react-router-dom";
-
 //shared
 import { DataTablePagination } from "@/components/shared/DataTablePagination";
 
-function UsersPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+//hooks
+import { usePaginationParams } from "@/hooks/usePaginationParams";
 
-  const page = Number(searchParams.get("page")) || 1;
-  const limit = Number(searchParams.get("limit")) || 10;
+function UsersPage() {
+  const { page, limit, setPage, setLimit } = usePaginationParams();
 
   const { data: users, isLoading } = useUsers({ page, limit });
 
@@ -23,8 +20,7 @@ function UsersPage() {
   return (
     <>
       <DataTable columns={userTableColumns} data={users || []} />
-
-      <DataTablePagination {...{ setSearchParams, limit, page, isLastPage }} />
+      <DataTablePagination {...{ page, isLastPage, setPage, setLimit }} />
     </>
   );
 }
