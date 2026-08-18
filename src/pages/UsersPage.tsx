@@ -8,7 +8,7 @@ import { userTableColumns, useUsers } from "@/features/users";
 import { DataTablePagination } from "@/components/shared/DataTablePagination";
 
 //hooks
-import { usePaginationParams } from "@/hooks/usePaginationParams";
+import { usePaginationParams } from "@/hooks";
 
 function UsersPage() {
   const { page, limit, setPage, setLimit } = usePaginationParams();
