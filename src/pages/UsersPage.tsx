@@ -5,7 +5,7 @@ import { DataTable } from "@/components/ui/data-table";
 import { userTableColumns, useUsers } from "@/features/users";
 
 //shared
-import { DataTablePagination } from "@/components/shared/DataTablePagination";
+import { DataTablePagination } from "@/components/shared";
 
 //hooks
 import { usePaginationParams } from "@/hooks";
