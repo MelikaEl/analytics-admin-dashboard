@@ -19,7 +19,7 @@ function UsersPage() {
 
   return (
     <>
-      <DataTable columns={userTableColumns} data={users || []} />
+      <DataTable columns={userTableColumns} data={users || []} isLoading={isLoading} />
       <DataTablePagination {...{ page, isLastPage, setPage, setLimit }} />
     </>
   );
