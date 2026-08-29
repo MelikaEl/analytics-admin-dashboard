@@ -1,4 +1,12 @@
-import { flexRender, getCoreRowModel, useReactTable, type ColumnDef } from "@tanstack/react-table";
+import * as React from "react";
+
+import {
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+  type ColumnDef,
+  type SortingState,
+} from "@tanstack/react-table";
 
 import {
   Table,
@@ -22,10 +30,16 @@ export function DataTable<TData, TValue>({
   data,
   isLoading,
 }: DataTableProps<TData, TValue>) {
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    onSortingChange: setSorting,
+    state: {
+      sorting,
+    },
   });
   return (
     <div className="overflow-hidden rounded-md border">
