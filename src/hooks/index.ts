@@ -1,2 +1,2 @@
 export { useIsMobile } from "./use-mobile";
-export { usePaginationParams } from "./usePaginationParams";
+export { useParams } from "./useParams";
