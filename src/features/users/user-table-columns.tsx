@@ -6,12 +6,16 @@ import type { User, UserStatus } from "./types";
 
 //import ui
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 //constants
 import { STATUS_ICONS } from "./constants";
 
 //utils
 import { formatDate } from "@/utils/date";
+
+//icons
+import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 
 export const userTableColumns: ColumnDef<User>[] = [
   {
@@ -26,7 +30,22 @@ export const userTableColumns: ColumnDef<User>[] = [
   },
   {
     accessorKey: "joinedAt",
-    header: "Joined At",
+    header: ({ column }) => {
+      const sorted = column.getIsSorted();
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => {
+            return column.toggleSorting(sorted === "asc");
+          }}
+        >
+          Joined At
+          {sorted === "asc" && <ArrowUp className="ml-2 h-4 w-4" />}
+          {sorted === "desc" && <ArrowDown className="ml-2 h-4 w-4" />}
+          {!sorted && <ArrowUpDown className="ml-2 h-4 w-4" />}
+        </Button>
+      );
+    },
     cell: ({ row }) => formatDate(row.original.joinedAt),
   },
   {
