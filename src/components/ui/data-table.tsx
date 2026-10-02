@@ -3,6 +3,8 @@ import {
   getCoreRowModel,
   useReactTable,
   type ColumnDef,
+  type SortingState,
+  type Updater,
 } from "@tanstack/react-table";
 
 import {
@@ -20,17 +22,26 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   isLoading: boolean;
+  sorting?: SortingState;
+  onSortingChange?: (updater: Updater<SortingState>) => void;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
   isLoading,
+  sorting,
+  onSortingChange,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    manualSorting: true,
+    onSortingChange,
+    state: {
+      sorting,
+    },
   });
   return (
     <div className="overflow-hidden rounded-md border">
