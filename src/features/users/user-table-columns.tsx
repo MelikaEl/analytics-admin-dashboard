@@ -34,7 +34,7 @@ export const userTableColumns: ColumnDef<User>[] = [
       const sorted = column.getIsSorted();
       return (
         <Button
-          variant="ghost"
+          variant="secondary"
           onClick={() => {
             return column.toggleSorting(sorted === "asc");
           }}
