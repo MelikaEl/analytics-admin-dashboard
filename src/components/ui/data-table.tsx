@@ -22,23 +22,34 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   isLoading: boolean;
-  sorting?: SortingState;
-  onSortingChange?: (updater: Updater<SortingState>) => void;
+  order?: string;
+  sortBy?: string;
+  setSort?: (newSort: string, newOrder: string) => void;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
   isLoading,
-  sorting,
-  onSortingChange,
+  order,
+  sortBy,
+  setSort,
 }: DataTableProps<TData, TValue>) {
+  const sorting: SortingState = sortBy ? [{ id: sortBy, desc: order === "desc" }] : [];
+
+  const handleSortingChange = (updater: Updater<SortingState>) => {
+    const next = typeof updater === "function" ? updater(sorting) : updater;
+    if (next.length > 0) {
+      setSort?.(next[0].id, next[0].desc ? "desc" : "asc");
+    }
+  };
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     manualSorting: true,
-    onSortingChange,
+    onSortingChange: handleSortingChange,
     state: {
       sorting,
     },
