@@ -2,7 +2,7 @@
 import { DataTable } from "@/components/ui/data-table";
 
 // users
-import { userTableColumns, useUsers } from "@/features/users";
+import { FilterDropdown, userTableColumns, useUsers } from "@/features/users";
 
 //shared
 import { DataTablePagination } from "@/components/shared";
@@ -19,6 +19,7 @@ function UsersPage() {
 
   return (
     <>
+      <FilterDropdown />
       <DataTable
         columns={userTableColumns}
         data={users || []}
