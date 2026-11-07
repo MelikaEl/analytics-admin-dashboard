@@ -13,13 +13,18 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 
+//icon
+import { ChevronDown } from "lucide-react";
+
 export function FilterDropdown() {
   const [position, setPosition] = useState("bottom");
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <Button variant="outline">
+          Open <ChevronDown />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-32">
         <DropdownMenuGroup>
