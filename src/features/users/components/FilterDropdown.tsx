@@ -6,7 +6,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
@@ -23,12 +22,11 @@ export function FilterDropdown() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">
-          Open <ChevronDown />
+          Role <ChevronDown />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-32">
         <DropdownMenuGroup>
-          <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
           <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
             <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
