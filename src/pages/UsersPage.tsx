@@ -19,7 +19,9 @@ function UsersPage() {
 
   return (
     <>
-      <FilterDropdown />
+      <div className="pb-4 flex justify-end">
+        <FilterDropdown />
+      </div>
       <DataTable
         columns={userTableColumns}
         data={users || []}
