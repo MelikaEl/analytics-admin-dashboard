@@ -10,3 +10,4 @@ export interface User {
 
 export type UserStatus = "active" | "inactive" | "pending";
 
+export type UserRole = "Officer" | "Representative" | "Coordinator" | "Specialist";
