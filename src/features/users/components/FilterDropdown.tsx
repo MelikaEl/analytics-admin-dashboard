@@ -15,8 +15,11 @@ import { Button } from "@/components/ui/button";
 //icon
 import { ChevronDown } from "lucide-react";
 
+//constant
+import { ROLES } from "../constants";
+
 export function FilterDropdown() {
-  const [position, setPosition] = useState("bottom");
+  const [role, setRole] = useState("");
 
   return (
     <DropdownMenu>
@@ -27,10 +30,10 @@ export function FilterDropdown() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-32">
         <DropdownMenuGroup>
-          <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-            <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+          <DropdownMenuRadioGroup value={role} onValueChange={setRole}>
+            {ROLES.map((role) => (
+              <DropdownMenuRadioItem value={role}>{role}</DropdownMenuRadioItem>
+            ))}
           </DropdownMenuRadioGroup>
         </DropdownMenuGroup>
       </DropdownMenuContent>
