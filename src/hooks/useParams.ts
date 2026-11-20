@@ -1,3 +1,4 @@
+import type { UserRole } from "@/features/users";
 import { useSearchParams } from "react-router-dom";
 
 export function useParams() {
@@ -8,6 +9,8 @@ export function useParams() {
 
   const sortBy = searchParams.get("sortBy") || undefined;
   const order = (searchParams.get("order") as "asc" | "desc") || undefined;
+
+  const role = (searchParams.get("role") as UserRole) || undefined;
 
   const setPage = (newPage: number) => {
     setSearchParams((prev) => {
@@ -33,5 +36,13 @@ export function useParams() {
     });
   };
 
-  return { page, limit, sortBy, order, setPage, setLimit, setSort };
+  const setRole = (newRole: string) => {
+    setSearchParams((prev) => {
+      prev.set("role", newRole);
+      prev.set("page", "1");
+      return prev;
+    });
+  };
+
+  return { page, limit, sortBy, order, role, setPage, setLimit, setSort, setRole };
 }
