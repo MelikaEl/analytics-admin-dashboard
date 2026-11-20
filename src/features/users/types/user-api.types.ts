@@ -1,4 +1,4 @@
-import type { User } from "./user.types";
+import type { User, UserRole } from "./user.types";
 
 export type GetUsersResponse = User[];
 
@@ -7,4 +7,5 @@ export interface UsersParams {
   limit?: number;
   sortBy?: string;
   order?: "asc" | "desc";
+  role?: UserRole;
 }
