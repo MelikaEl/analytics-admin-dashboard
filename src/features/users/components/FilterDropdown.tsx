@@ -1,5 +1,5 @@
-//hooks
-import { useState } from "react";
+//type
+import type { UserRole } from "../types";
 
 // ui
 import {
@@ -18,9 +18,12 @@ import { ChevronDown } from "lucide-react";
 //constant
 import { ROLES } from "../constants";
 
-export function FilterDropdown() {
-  const [role, setRole] = useState("");
+interface FilterDropdownProps {
+  role: UserRole;
+  setRole: (role: string) => void;
+}
 
+export function FilterDropdown({ role, setRole }: FilterDropdownProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
