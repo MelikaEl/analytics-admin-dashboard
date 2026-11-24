@@ -11,16 +11,16 @@ import { DataTablePagination } from "@/components/shared";
 import { useParams } from "@/hooks";
 
 function UsersPage() {
-  const { page, limit, order, sortBy, setPage, setLimit, setSort } = useParams();
+  const { page, limit, order, sortBy, role, setPage, setLimit, setSort, setRole } = useParams();
 
-  const { data: users, isLoading } = useUsers({ page, limit, order, sortBy });
+  const { data: users, isLoading } = useUsers({ page, limit, order, sortBy, role });
 
   const isLastPage = (users?.length ?? 0) < limit;
 
   return (
     <>
       <div className="pb-4 flex justify-end">
-        <FilterDropdown />
+        <FilterDropdown {...{ role, setRole }} />
       </div>
       <DataTable
         columns={userTableColumns}
