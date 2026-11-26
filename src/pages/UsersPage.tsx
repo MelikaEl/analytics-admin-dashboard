@@ -23,10 +23,10 @@ function UsersPage() {
 
   return (
     <>
-      <div className="pb-4 flex justify-end">
+      <div className="pb-4 flex justify-end gap-1">
         <FilterDropdown {...{ role, setRole }} />
         {role && (
-          <Button onClick={() => setRole(undefined)}>
+          <Button onClick={() => setRole(undefined)} variant="destructive">
             <X />
           </Button>
         )}
