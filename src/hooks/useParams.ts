@@ -36,9 +36,13 @@ export function useParams() {
     });
   };
 
-  const setRole = (newRole: string) => {
+  const setRole = (newRole?: string) => {
     setSearchParams((prev) => {
-      prev.set("role", newRole);
+      if (newRole) {
+        prev.set("role", newRole);
+      } else {
+        prev.delete("role");
+      }
       prev.set("page", "1");
       return prev;
     });
