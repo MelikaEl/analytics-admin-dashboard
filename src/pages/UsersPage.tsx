@@ -1,5 +1,6 @@
 // ui
 import { DataTable } from "@/components/ui/data-table";
+import { Button } from "@/components/ui/button";
 
 // users
 import { FilterDropdown, userTableColumns, useUsers } from "@/features/users";
@@ -9,6 +10,9 @@ import { DataTablePagination } from "@/components/shared";
 
 //hooks
 import { useParams } from "@/hooks";
+
+//icon
+import { X } from "lucide-react";
 
 function UsersPage() {
   const { page, limit, order, sortBy, role, setPage, setLimit, setSort, setRole } = useParams();
@@ -21,6 +25,11 @@ function UsersPage() {
     <>
       <div className="pb-4 flex justify-end">
         <FilterDropdown {...{ role, setRole }} />
+        {role && (
+          <Button onClick={() => setRole(undefined)}>
+            <X />
+          </Button>
+        )}
       </div>
       <DataTable
         columns={userTableColumns}
